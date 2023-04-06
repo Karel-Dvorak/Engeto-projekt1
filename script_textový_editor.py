@@ -39,18 +39,33 @@ uzivatele = {
     'mike':'password123',
     'liz':'pass123'
 }
+oddelovac = '-' * 40
 # Vyžádá si od uživatele přihlašovací jméno a heslo
+
+user_name = input('User name:')
+password = input('password:')
 
 # Zjistí, jestli zadané údaje odpovídají někomu z registrovaných uživatelů
 
-# Pokud je registrovaný, pozdrav jej a umožni mu analyzovat texty
-
-# Pokud není registrovaný, upozorni jej a ukonči program
+if uzivatele.get(user_name) == password:
+    print(oddelovac)
+    print('Welcome to the app, bob \n We have 3 texts to be analyzed.')
+    print(oddelovac)
+else:
+    print('unregistered user, terminating the program..')
+    quit()
 
 # Program nechá uživatele vybrat mezi třemi texty, uloženými v proměnné TEXTS:
+print(f"Text č.1 {TEXTS[0]}", oddelovac, sep='\n')
+print(f"Text č.2\n {TEXTS[1]}", oddelovac, sep='\n')
+print(f"Text č.3\n {TEXTS[2]}", oddelovac, sep='\n')
 
-#Pokud uživatel vybere takové číslo textu, které není v zadání, program jej upozorní a skončí,
+# Pokud uživatel vybere takové číslo textu, které není v zadání, program jej upozorní a skončí,
+vyber_textu = input('Zadej číslo textu:')
 
+#if vyber_textu not in int(TEXTS[3]):
+   # print('Číslo není ve výběru, ukončuji program!')
+    #quit()
 #pokud uživatel zadá jiný vstup než číslo, program jej rovněž upozorní a skončí.
 
 # Pro vybraný text spočítá následující statistiky:

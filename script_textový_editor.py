@@ -5,8 +5,7 @@ author: Karel Dvořák
 email: dvorak.karl@seznam.cz
 discord: Karel_D#8832
 """
-TEXTS = ['''
-Situated about 10 miles west of Kemmerer,
+TEXTS = ['''Situated about 10 miles west of Kemmerer,
 Fossil Butte is a ruggedly impressive
 topographic feature that rises sharply
 some 1000 feet above Twin Creek Valley
@@ -49,30 +48,31 @@ password = input('password:')
 # Zjistí, jestli zadané údaje odpovídají někomu z registrovaných uživatelů
 
 if uzivatele.get(user_name) == password:
-    print(oddelovac)
-    print('Welcome to the app, bob \n We have 3 texts to be analyzed.')
-    print(oddelovac_kapitola)
+    print(
+    oddelovac,
+    'Welcome to the app, bob \n We have 3 texts to be analyzed.',
+    oddelovac_kapitola,
+    sep='\n')
 else:
     print('unregistered user, terminating the program..')
     quit()
 
 # Program nechá uživatele vybrat mezi třemi texty, uloženými v proměnné TEXTS:
-print(f"Text č.1 {TEXTS[0]}", oddelovac, sep='\n')
-print(f"Text č.2\n {TEXTS[1]}", oddelovac, sep='\n')
-print(f"Text č.3\n {TEXTS[2]}", oddelovac_kapitola, sep='\n')
+print(f"TEXT 1\n {TEXTS[0]}", oddelovac,
+    f"TEXT 2\n {TEXTS[1]}", oddelovac,
+    f"TEXT 3\n {TEXTS[2]}", oddelovac_kapitola, sep='\n')
 
 # Pokud uživatel vybere takové číslo textu, které není v zadání, program jej upozorní a skončí,
-vyber_textu = input('Zadej číslo textu:')
+#pokud uživatel zadá jiný vstup než číslo, program jej rovněž upozorní a skončí.
+vyber_textu = input('Enter a number btw. 1 until 3 to select: ')
 
 if vyber_textu.isnumeric() and 1 <= int(vyber_textu) <= 3:
-    print(f"Vybraný text: {TEXTS[int(vyber_textu) -1]}", oddelovac_kapitola, sep='\n')
-#pokud uživatel zadá jiný vstup než číslo, program jej rovněž upozorní a skončí.
-
+    print(oddelovac, f"{TEXTS[int(vyber_textu) -1]}", oddelovac_kapitola, sep='\n')
 elif vyber_textu.isalpha():
-    print('Toto není číslo, ukončuji')
+    print('This is not a number, terminating the program..')
     quit()
 else:
-    print('Číslo není ve výběru, ukončuji program!')
+    print('The number is not in the selection, terminating the program..')
     quit()
 
 # Pro vybraný text spočítá následující statistiky:
@@ -107,12 +107,13 @@ for velka_p in slova_velkymi:
     if velka_p.isupper():
         slova_velka.append(velka_p)
 
-print(f"""Počet slov: {len(cisty_text)}
-Počet slov začínající velkým písmenem: {len(slova_velkymi)}
-Počet slov s velkými písmeny {len(slova_velka)}
-Počet slov začínající malým písmenem: {len(slova_malymi)}
-Počet čísel: {len(slova_cisla)}
-Suma všech čísel: {sum(slova_cisla[:])}""")
+print(f"""There are {len(cisty_text)} words in the select text.
+There are {len(slova_velkymi)} titlecase words.
+There are {len(slova_velka)} uppercase words.
+There are {len(slova_malymi)} lowercase words.
+There are {len(slova_cisla)} numeric strings.
+The sum of all the numbers {sum(slova_cisla[:])}""")
+
 # Program zobrazí jednoduchý sloupcový graf, který bude reprezentovat 
 # četnost různých délek slov v textu. 
 
